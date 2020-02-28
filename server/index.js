@@ -31,7 +31,7 @@ const redisClient = redis.createClient({
 	retry_strategy: () => 1000
 });
 
-const redisPublisher = reidsClient.duplicate();
+const redisPublisher = redisClient.duplicate();
 
 app.get('/', (req, res) => {
 	res.send('Hi');
