@@ -32,9 +32,17 @@ services:
                 build:
                         dockerfile: Dockerfile.dev
                         context: ./worker
-                volumens:
+                volumes:
                         - /app/node_modules
                         - ./worker:/app
+                environment:
+                        - REDIS_HOST=redis
+                        - REDIS_PORT=6379
+                        - PGUSER=postgres
+                        - PGHOST=postgres
+                        - PGDATABASE=postgres
+                        - PGPASSWORD=password
+                        - PGPORT=5432
         nginx:
                 restart: always
                 build:
