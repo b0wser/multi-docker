@@ -14,8 +14,8 @@ after_success:
         - docker build -t wari0/multi-nginx:latest   ./nginx
         - docker build -t wari0/multi-server:latest  ./server
         - docker build -t wari0/multi-worker:latest  ./worker
+        - docker logout
         - docker login -u "$DOCKER_ID" -p "$DOCKER_PASSWORD"
-        - echo "$DOCKER_ID $DOCKER_PASSWORD"
         - docker push wari0/multi-client:latest 
         - docker push wari0/multi-nginx:latest 
         - docker push wari0/multi-server:latest 
